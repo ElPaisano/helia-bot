@@ -29,6 +29,8 @@ In addition, the bot draws on sources from the [IPFS docs](https://docs.ipfs.tec
 - https://docs.ipfs.tech/concepts/how-ipfs-works/
 - https://docs.ipfs.tech/concepts/lifecycle/
 
+All sources are defined in the lists in https://github.com/ElPaisano/helia-bot/blob/main/create_kb.py.
+
 ## How to use the bot
 
 As described above, HeliaBot is currently an experiemental app. As such, setting it up and using it is a little hacky.
