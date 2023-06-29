@@ -2,21 +2,32 @@
 
 > HeliaBot is a hacky experiment, not a production-ready application :D
 
-HeliaBot is a chatbot application that answers users questions about IPFS Helia using a subset of resources from the following information sources:
+HeliaBot is a terminal-based chatbot application that answers users questions about IPFS Helia using the [data sources listed](#data-sources).
 
-- [The Helia project wiki](https://github.com/ipfs/helia/wiki),
+Under the hood, the bot uses the [Superpowered AI Python SDK](https://github.com/SuperpoweredAI/superpowered-python-sdk) with ChatGPT, which ensures that the bot will only use sources provided and will not make up wacky answers using unknown or outdated sources, which is what ChatGPT will do if left to it's own devices.
+
+* [Data sources](#data-sources)
+* [How to use the bot](#how-to-use-the-bot)
+  + [Prerequisites](#prerequisites)
+  + [Setup](#setup)
+  + [Chat with the bot](#chat-with-the-bot)
+* [Utilities](#utilities)
+  + [List all knowledge bases](#list-all-knowledge-bases)
+  + [Delete all knowledge bases](#delete-all-knowledge-bases)
+
+## Data sources
+
+HeliaBot uses a subset of resources from the following information sources:
+
+- [The Helia project wiki](https://github.com/ipfs/helia/wiki)
 - [The Helia example apps repo](https://github.com/ipfs-examples/helia-examples/tree/main)
 
 In addition, the bot draws on sources from the [IPFS docs](https://docs.ipfs.tech/):
 
-- https://docs.ipfs.tech/concepts/what-is-ipfs/,
-- https://docs.ipfs.tech/concepts/ipfs-solves/,
-- https://docs.ipfs.tech/concepts/how-ipfs-works/,
-- https://docs.ipfs.tech/concepts/lifecycle/,
-
-Using the [Superpowered AI Python SDK](https://github.com/SuperpoweredAI/superpowered-python-sdk) ensures that ChatGPT will only use sources provided and will not make up wacky answers using unknown or outdated sources. In other words, Superpowered AI provides guardrails, so that ChatGPT only draws from sources provided and does not hallucinate. 
-
-The bot uses this knowledge to answer questions about Helia that the user asks via the command line. 
+- https://docs.ipfs.tech/concepts/what-is-ipfs/
+- https://docs.ipfs.tech/concepts/ipfs-solves/
+- https://docs.ipfs.tech/concepts/how-ipfs-works/
+- https://docs.ipfs.tech/concepts/lifecycle/
 
 ## How to use the bot
 
@@ -44,7 +55,7 @@ As described above, HeliaBot is currently an experiemental app. As such, setting
 
 1. A [Superpowered AI account](https://superpowered.ai/)
 
-1. A Superpowered AI key and key secret 
+1. A Superpowered AI key and key secret (you can create this from your account dashboard)
 
 1. A text editor 
 
@@ -111,7 +122,7 @@ Once you've met the prerequisites, you must complete some intital set up to use 
 
 Yay! You've completed the setup! Now, you can use the bot.
 
-### Use the bot
+### Chat with the bot
 
 Now that the set up is complete, fire up the bot and start asking questions. 
 
@@ -181,3 +192,31 @@ Now that the set up is complete, fire up the bot and start asking questions.
 
    You can run this example to see how it works. Keep in mind that this is just a basic example, and you can explore more advanced features and use cases of Helia by referring to the documentation and examples provided in the sources.
    ```
+
+## Utilities
+
+The `util.py` file defines 2 utility functions, `pretty_print_kbs(kbs)` and `delete_all_kbs(kbs)`, for a given list `kbs` of Superpowered AI knowledge bases. The first function is useful for cataloging listing knowledge bases and their metadata (and for when you forget your IDs :D). The second function deletes all knowledge bases, which is useful if you goof and want to start over.
+
+### List all knowledge bases
+
+1. Open `util.py`
+2. Uncomment `pretty_print_kbs(kbs)`
+3. Make sure `delete_all_kbs(kbs)` is commented out
+4. Run `util.py`
+   ```shell
+   python util.py
+   ```
+
+   Your knowledge bases display on the command line.
+
+### Delete all knowledge bases
+
+1. Open `util.py`
+2. Uncomment `delete_all_kbs(kbs)`
+3. Make sure `pretty_print_kbs(kbs)` is commented out
+4. Run `util.py`
+   ```shell
+   python util.py
+   ```
+
+   Your knowledge bases display on the command line. The script hangs for a moment before deleting all listed knowledge bases.
