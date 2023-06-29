@@ -7,6 +7,7 @@ HeliaBot is a terminal-based chatbot application that answers users questions ab
 Under the hood, the bot uses the [Superpowered AI Python SDK](https://github.com/SuperpoweredAI/superpowered-python-sdk) with ChatGPT, which ensures that the bot will only use sources provided and will not make up wacky answers using unknown or outdated sources, which is what ChatGPT will do if left to it's own devices.
 
 * [Data sources](#data-sources)
+  + [Adding new data sources](#adding-new-data-sources)
 * [How to use the bot](#how-to-use-the-bot)
   + [Prerequisites](#prerequisites)
   + [Setup](#setup)
@@ -30,6 +31,10 @@ In addition, the bot draws on sources from the [IPFS docs](https://docs.ipfs.tec
 - https://docs.ipfs.tech/concepts/lifecycle/
 
 All sources are defined in the lists in https://github.com/ElPaisano/helia-bot/blob/main/create_kb.py.
+
+### Adding new data sources
+
+This section is currently under construction. For the moment, please reach out directly to @ElPaisano for information on how to do this.
 
 ## How to use the bot
 
